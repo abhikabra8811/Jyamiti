@@ -7,6 +7,12 @@ namespace jamiti
 	{
 	public:
 
+		Point():
+			m_x(std::numeric_limits<double>::quiet_NaN()),
+			m_y(std::numeric_limits<double>::quiet_NaN())
+		{
+		}
+
 		Point(double x, double y)
 			:m_x(x),
 			m_y(y)

@@ -14,6 +14,7 @@ namespace jamiti
 		std::vector<Point> intersect(const Line& other) const;
 
 		double sqr_length() const;
+		double get_y_at_x(double x) const;
 
 		Point m_start_pt;
 		Point m_end_pt;

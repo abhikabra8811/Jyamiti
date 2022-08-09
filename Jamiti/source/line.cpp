@@ -80,5 +80,13 @@ namespace jamiti
 		return (m_end_pt.m_x - m_start_pt.m_x) * (m_end_pt.m_x - m_start_pt.m_x) +
 						(m_end_pt.m_y - m_start_pt.m_y) * (m_end_pt.m_y - m_start_pt.m_y);
 	}
+
+	double Line::get_y_at_x(double x) const
+	{
+		if (m_start_pt.m_x == m_end_pt.m_x)
+			return std::min(m_start_pt.m_y, m_end_pt.m_y);
+
+		return m_start_pt.m_y + ((m_end_pt.m_y - m_start_pt.m_y) / (m_end_pt.m_x - m_start_pt.m_x)) * (x - m_start_pt.m_x);
+	}
 }
 
