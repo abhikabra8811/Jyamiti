@@ -23,6 +23,9 @@
     <ClCompile Include="source\sweep_line.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\sweep_line_impl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\line.h">
@@ -39,6 +42,9 @@
     </ClInclude>
     <ClInclude Include="include\sweep_line.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sweep_line_impl.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

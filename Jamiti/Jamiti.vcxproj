@@ -146,12 +146,14 @@
     <ClInclude Include="include\point.h" />
     <ClInclude Include="include\std_include.h" />
     <ClInclude Include="include\sweep_line.h" />
+    <ClInclude Include="source\sweep_line_impl.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\line.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\point.cpp" />
     <ClCompile Include="source\sweep_line.cpp" />
+    <ClCompile Include="source\sweep_line_impl.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

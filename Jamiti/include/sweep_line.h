@@ -2,6 +2,7 @@
 #include "line.h"
 namespace jamiti
 {
+	class SweepLineImpl;
 	class SweepLine
 	{
 	public:
@@ -9,11 +10,8 @@ namespace jamiti
 		~SweepLine();
 
 		void load_geometry(std::vector<Line> segments);
-
 		void execute();
-
-		class Impl;
 	private:		
-		std::unique_ptr<Impl> m_impl;
+		std::unique_ptr<SweepLineImpl> m_impl;
 	};
 } //namespace jamiti

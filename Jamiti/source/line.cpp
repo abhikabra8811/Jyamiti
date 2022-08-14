@@ -50,7 +50,7 @@ namespace jamiti
 			double pq_len_sqr = q1_minus_p1.magnitude_sqr();
 
 			//line parallel
-			if (qp_cross_l2 <= eps * l2_sqr * pq_len_sqr)
+			if (std::abs(qp_cross_l2) <= eps * l2_sqr * pq_len_sqr)
 			{
 				//lines are collinear
 				double t_l2_start = q1_minus_p1.dot_product(p2_minus_p1) / p2_minus_p1.dot_product(p2_minus_p1);
