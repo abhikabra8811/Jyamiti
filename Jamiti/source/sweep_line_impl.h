@@ -87,7 +87,7 @@ namespace jamiti
 		void load_geometry(std::vector<Line> segments);
 		void handle_event(const SweeplineEvent& sweep_event);
 		void execute();
-
+		std::vector<SweepLine::Intersection> get_intersectoion() const;
 	private:
 
 		auto find_segment_in_sweep_status(size_t index);
@@ -97,6 +97,7 @@ namespace jamiti
 		std::multiset<SweeplineEvent, Event_comparator> m_event_queue;
 		std::unordered_map<size_t, bool> m_segments_reoriented;
 		std::multiset<size_t, SweepLineStatusComparator> m_sweep_status;
+		std::vector<SweepLine::Intersection> m_intersections;
 		double m_event_x;
 		friend SweepLineStatusComparator;
 	};

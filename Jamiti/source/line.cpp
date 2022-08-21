@@ -61,11 +61,11 @@ namespace jamiti
 
 				t_l2_start = std::clamp(t_l2_start, 0.0, 1.0);
 				t_l2_end = std::clamp(t_l2_end, 0.0, 1.0);
-				if (t_l2_start != t_l2_end)
-				{
-					intersection_pts.push_back(m_start_pt + p2_minus_p1 * t_l2_start);
-					intersection_pts.push_back(m_start_pt + p2_minus_p1 * t_l2_end);
-				}
+				//if (t_l2_start != t_l2_end)
+				//{
+				//	intersection_pts.push_back(m_start_pt + p2_minus_p1 * t_l2_start);
+				//	intersection_pts.push_back(m_start_pt + p2_minus_p1 * t_l2_end);
+				//}
 			}
 			else
 			{

@@ -11,4 +11,5 @@ TEST(TestSweepline, LoadSegments)
 	SweepLine sweep_line;
 	sweep_line.load_geometry(std::move(segments));
 	sweep_line.execute();
+	auto intersections = sweep_line.get_intersections();
 }

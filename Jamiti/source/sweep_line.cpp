@@ -22,4 +22,8 @@ namespace jamiti
 	{
 		m_impl->execute();
 	}
+	std::vector<SweepLine::Intersection> SweepLine::get_intersections() const
+	{
+		return m_impl->get_intersectoion();
+	}
 } //namespace jamiti

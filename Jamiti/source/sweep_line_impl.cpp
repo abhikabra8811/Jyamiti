@@ -42,8 +42,8 @@ namespace jamiti
 
 	auto SweepLineImpl::find_segment_in_sweep_status(size_t index)
 	{
-		auto iter_start = std::lower_bound(std::begin(m_sweep_status), std::end(m_sweep_status), index);
- 		auto iter_end = std::upper_bound(std::begin(m_sweep_status), std::end(m_sweep_status), index);
+		auto iter_start = std::lower_bound(std::begin(m_sweep_status), std::end(m_sweep_status), index, m_sweep_status.key_comp());
+ 		auto iter_end = std::upper_bound(std::begin(m_sweep_status), std::end(m_sweep_status), index, m_sweep_status.key_comp());
 		while (iter_start != iter_end)
 		{
 			if (*iter_start == index)
@@ -126,15 +126,17 @@ namespace jamiti
 				const Line& prev_seg = m_segments[*iter_prev];
 				const Line& next_seg = m_segments[*iter_next];
 				std::vector<Point> intersections = prev_seg.intersect(next_seg);
-				if (intersections.size() != 0)
+				if (intersections.size() != 0 && m_event_x <= intersections[0].m_x)
 				{
 					m_event_queue.insert(SweeplineEvent::ConstructIntersectionEvent(*iter_prev, *iter_next, intersections[0]));
 				}
+				m_sweep_status.erase(iter);
 			}
 			break;
 		}
 		case SweeplineEvent::Type::Intersection:
 		{
+			m_intersections.push_back({ sweep_event.m_point, sweep_event.m_index_1, sweep_event.m_index_2 });
 			auto iter_1 = find_segment_in_sweep_status(sweep_event.m_index_1);
 			auto iter_2 = find_segment_in_sweep_status(sweep_event.m_index_2);
 			const Line& line_1 = m_segments[*iter_1];
@@ -179,6 +181,11 @@ namespace jamiti
 		default:
 			break;
 		}
+	}
+
+	std::vector<SweepLine::Intersection> SweepLineImpl::get_intersectoion() const
+	{
+		return m_intersections;
 	}
 
 	void SweepLineImpl::execute()
