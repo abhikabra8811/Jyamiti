@@ -1,1 +1,1 @@
-# Jamiti means Geometry in Sanskrit
+# Jyamiti means Geometry in Sanskrit
